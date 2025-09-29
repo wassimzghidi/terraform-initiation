@@ -73,6 +73,16 @@ jobs:
         curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
         az --version
 
+    # Debug path issue
+    - name: Print PATH
+      run: echo $PATH
+
+    # Ensure az command is available
+    - name: Check Azure CLI
+      run: |
+        which az
+
+
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
